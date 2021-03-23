@@ -34,6 +34,12 @@
   - [Find the second-most repeated word in string](#find-the-second-most-repeated-word-in-string)
   - [Longest Common Subsequence](#longest-common-subsequence-1)
   - [Generate all possible valid IP addresses from given string](#generate-all-possible-valid-ip-addresses-from-given-string)
+  - [Smallest Window that contains all the characters of the string](#smallest-window-that-contains-all-the-characters-of-the-string)
+  - [Minimum Character added at the front to make the string palindrome](#minimum-character-added-at-the-front-to-make-the-string-palindrome)
+  - [Print all the anagrams together, given words array](#print-all-the-anagrams-together-given-words-array)
+  - [Smallest window in a string containing all the characters of another string](#smallest-window-in-a-string-containing-all-the-characters-of-another-string)
+  - [Recurisvely remove all adjacent duplicates](#recurisvely-remove-all-adjacent-duplicates)
+  - [Transform one string to another using min. swap to front](#transform-one-string-to-another-using-min-swap-to-front)
 
 ---
 
@@ -481,5 +487,99 @@
 - check them with the help of is_valid and append them to the result
 - Time Complexity is, $O(n^3)$
 - Space Complexity is, $O(n^3)$
+
+</details>
+
+## Smallest Window that contains all the characters of the string
+
+<details>
+
+  <summary>Implementation</summary>
+
+- use sliding window technique
+- find the total length of set of distinct characters
+- create a hash_map to store the frequence of each distinct key
+- initialize count = 0, start = 0, min_length = length(string)
+- for (i, char) in enumerate(string),
+- increment the frequence of char in hash_map by 1
+- pass if frequence of char currently is 1 but increment count
+- check count == len(distinct_set),
+- iterate check string[start]'s frequence is > 1, do
+- reduce it's frequency, increment start, check new_window length and update it respectively
+- Time Complexity is, $O(n)$
+- Space Complexity is, $O(n)$
+
+</details>
+
+## Minimum Character added at the front to make the string palindrome
+
+<details>
+
+  <summary>Implementation</summary>
+
+- final_string = ''
+- concat final_string, string + '$' + reversed(string)
+- find the prefix_array for final_string used in KMP algorithm
+- return len(final_string) - prefix_array[-1]
+- Time Complexity is, $O(n)$
+- Space Complexity is, $O(n)$
+
+</details>
+
+## Print all the anagrams together, given words array
+
+<details>
+
+  <summary>Implementation</summary>
+
+1. Use hash_map to store the words which have similar hash value
+2. Use of two auxillary array
+
+</details>
+
+## Smallest window in a string containing all the characters of another string
+
+<details>
+
+  <summary>Implementation</summary>
+
+- use sliding window technique
+- create a hash_map, total_count = set(text2), count = 0, min_length = len(text1)
+- minimize min_length using sliding window
+- Time Complexity is, $O(n)$
+- Space Complexity is, $O(m)$
+
+</details>
+
+## Recurisvely remove all adjacent duplicates
+
+<details>
+
+  <summary>Implementation</summary>
+
+- use recursion
+- base case, when len(string) == index, return ''
+- if prev_char == cur_char, skip cur_char, recursive call
+- else, print cur_char, recursive call
+- Time Complexity is, $O(n)$
+- Space Complexity is, $O(n)$
+
+</details>
+
+## Transform one string to another using min. swap to front
+
+<details>
+
+  <summary>Implementation</summary>
+
+- check the frequencies between two strings
+- initialize i = len1, j = len2, count = 0
+- while i >= 0,
+- if text1[i] == text2[j], i -= 1, j-= 1
+- else, while text1[i] != text2[j], i -= 1, result += 1
+- i -= 1, j -= 1
+- return count
+- Time Complexity is, $O(n)$
+- Space Complexity is, $O(1)$
 
 </details>
