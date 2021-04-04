@@ -7,6 +7,10 @@
   - [Fractional Knapsack Problem](#fractional-knapsack-problem)
   - [Permutation of a string](#permutation-of-a-string)
   - [Maximum Trains Stoppage can be provided](#maximum-trains-stoppage-can-be-provided)
+  - [Minimum Platforms](#minimum-platforms)
+  - [Buy Max stocks with ith at most stack can be bought](#buy-max-stocks-with-ith-at-most-stack-can-be-bought)
+  - [Shop in candy store](#shop-in-candy-store)
+  - [Minimize cash flow among given set of friends borrowed money](#minimize-cash-flow-among-given-set-of-friends-borrowed-money)
 
 ## Activity Selection Problem
 
@@ -101,5 +105,65 @@
 - clear the platform if time it is allowed to do so
 - Time Complexity is, $O(nlogn)$
 - Space Complexity is, $O(1)$
+
+</details>
+
+## Minimum Platforms
+
+<details>
+
+  <summary>Implementation</summary>
+
+- sort the arrival time and departure time
+- iterate through both the array, and check
+- if arrival[i] <= departure[j], max++, result = maximum(max, result), else max--
+- Time Complexity is, $O(nlogn)$
+- Space Complexity is, $O(1)$
+
+</details>
+
+## Buy Max stocks with ith at most stack can be bought
+
+<details>
+
+  <summary>Implementation</summary>
+
+- sort the array first by less stock price then by more day
+- traverse and find the max stocks that can be bought
+- Time Complexity is, $O(nlogn)$
+- Space Complexity is, $O(1)$
+
+</details>
+
+## Shop in candy store
+
+<details>
+
+  <summary>Implementation</summary>
+
+- sort the prices of candies in non-decreasing order
+- select the lowest price candy
+- select k candies from the right side
+- buy the remaining ones with money
+- return total money
+- Time Complexity is, $O(nlogn)$
+- Space Complexity is, $O(1)$
+
+</details>
+
+## Minimize cash flow among given set of friends borrowed money
+
+<details>
+
+  <summary>Implementation</summary>
+
+- find the total negative or positive cash flow for each friend
+- sort the array
+- left = array[0], right = array[-1]
+- while left != right:
+- if min(abs(left), abs(right)) = left, friend[left] pays left amount to friend[right], left += 1
+- if min(abs(left), abs(right)) = right, frient[left] pays right amount to friend[right], right -= 1
+- Time Complexity is, $O(n^2)$
+- Space Complexity is, $O(n)$
 
 </details>
